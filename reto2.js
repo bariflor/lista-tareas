@@ -1,99 +1,80 @@
-function ListaDeTareas(){  
-this.datosTareas=[
+  var datosTareas=[
   {
-    "userId": 1,
-    "id": 1,
-    "title": "delectus aut autem",
-    "completed": false
+
+    "title": "delectus aut autem"
+
   },
   {
-    "userId": 1,
-    "id": 2,
-    "title": "quis ut nam facilis et officia qui",
-    "completed": false
+    
+    "title": "quis ut nam facilis et officia qui"
+    
   },
   {
-    "userId": 1,
-    "id": 3,
-    "title": "fugiat veniam minus",
-    "completed": false
+    
+    "title": "fugiat veniam minus"
+    
   },
   {
-    "userId": 1,
-    "id": 4,
-    "title": "et porro tempora",
-    "completed": true
+    
+    "title": "et porro tempora"
+  }, 
+  {
+    
+    "title": "laboriosam mollitia et enim quasi adipisci quia provident illum"
+    
   },
   {
-    "userId": 1,
-    "id": 5,
-    "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
-    "completed": false
+    
+    "title": "qui ullam ratione quibusdam voluptatem quia omnis"
+    
   },
   {
-    "userId": 1,
-    "id": 6,
-    "title": "qui ullam ratione quibusdam voluptatem quia omnis",
-    "completed": false
+    
+    "title": "illo expedita consequatur quia in"
+    
   },
   {
-    "userId": 1,
-    "id": 7,
-    "title": "illo expedita consequatur quia in",
-    "completed": false
+    
+    "title": "quo adipisci enim quam ut ab"
   },
   {
-    "userId": 1,
-    "id": 8,
-    "title": "quo adipisci enim quam ut ab",
-    "completed": true
+   
+    "title": "molestiae perspiciatis ipsa"
+    
   },
   {
-    "userId": 1,
-    "id": 9,
-    "title": "molestiae perspiciatis ipsa",
-    "completed": false
-  },
-  {
-    "userId": 1,
-    "id": 10,
-    "title": "illo est ratione doloremque quia maiores aut",
-    "completed": true
+    "title": "illo est ratione doloremque quia maiores aut"
+    
   }
-]
-   this.agregar=function(nuevanota){
-    this.datosTareas.push(nuevanota);
-  }
-  
-}
+];
 // *******************************************************************
-// function tareas(userId,id,title){
-//     this.userId=userId;
-//     this.id=id;
-//     this.title=title;
-//     this.completed= false;
-// }
+function tareas(title){
+    this.title=title;
+}
 // *******************************************************************
 var html = "";
-for(var i=0;i<datosTareas.length;i++){
-  var dato= datosTareas[i];
-  var listar= "<li>"+dato.title+"</li>";
-  html += listar;
+ for (var i =0; i<datosTareas.length;i++){
+ 	var dato_1 = datosTareas[i];
+ 	//alert (dato_1);
+ 	var s = "<li>" +  dato_1.title +"</li>";
+ 	html += s;
+ }
+var mostrar = document.getElementById("mostrar");
+mostrar.innerHTML=html;// insrtando el contenido de la VAR html
+// ************************************************************************
+var body=document.body;
+function agregaTarea(){
+  var inputRecuperar=document.getElementById("agregar").value;// recupera la "nota nueva" del input
+  var datos = new tareas(inputRecuperar);
+  datosTareas.push(datos);// agrega a mi array el dato que le ingrese por input
+  for(var i=datosTareas.length-1;i<datosTareas.length;i++){//inicia desde el ultimo elemento y recorre
+    var ul=document.createElement("ul");
+    var li=document.createElement("li");
+   // var nuevoImpresion=document.getElementById("nuevaTarea");
+    li.innerHTML=datosTareas[i].title;
+    ul.appendChild(li);
+    body.appendChild(ul);
+  }
 }
-var mostrar= document.getElementById("mostrar");
-mostrar.innerHTML=html;
-// *********************************************************************
-// var mostrarLista="";
-// function listar(){
-//      document.getElementById("nombre").value = obj.nombre;
-           
-//     }
-// document.getElementById("lista").innerHTML=mostrarLista; 
-// }
-//cada vez que escriba en el input, le doy click en añadir y se imprima
-var btnAgregar = document.getElementById("btnAgregar");
-btnAgregar.onclick = function (){
-  var nuevaTarea = document.getElementById("nuevaTarea").value;
+// ************************************************************************
 
-  document.getElementById("nuevaTarea").value = "";
-}
