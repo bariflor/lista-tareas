@@ -1,8 +1,5 @@
-
-function tareas(userId,id,title){
-
-}
-var datosTareas=[
+function ListaDeTareas(){  
+this.datosTareas=[
   {
     "userId": 1,
     "id": 1,
@@ -63,4 +60,40 @@ var datosTareas=[
     "title": "illo est ratione doloremque quia maiores aut",
     "completed": true
   }
-];
+]
+   this.agregar=function(nuevanota){
+    this.datosTareas.push(nuevanota);
+  }
+  
+}
+// *******************************************************************
+// function tareas(userId,id,title){
+//     this.userId=userId;
+//     this.id=id;
+//     this.title=title;
+//     this.completed= false;
+// }
+// *******************************************************************
+var html = "";
+for(var i=0;i<datosTareas.length;i++){
+  var dato= datosTareas[i];
+  var listar= "<li>"+dato.title+"</li>";
+  html += listar;
+}
+var mostrar= document.getElementById("mostrar");
+mostrar.innerHTML=html;
+// *********************************************************************
+// var mostrarLista="";
+// function listar(){
+//      document.getElementById("nombre").value = obj.nombre;
+           
+//     }
+// document.getElementById("lista").innerHTML=mostrarLista; 
+// }
+//cada vez que escriba en el input, le doy click en añadir y se imprima
+var btnAgregar = document.getElementById("btnAgregar");
+btnAgregar.onclick = function (){
+  var nuevaTarea = document.getElementById("nuevaTarea").value;
+
+  document.getElementById("nuevaTarea").value = "";
+}
