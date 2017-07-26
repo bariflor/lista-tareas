@@ -56,25 +56,27 @@ var html = "";
  for (var i =0; i<datosTareas.length;i++){
  	var dato_1 = datosTareas[i];
  	//alert (dato_1);
- 	var s = "<li>" +  dato_1.title +"</li>";
+ 	var s = "<li>"+"<input  type='checkbox' onclick=eliminar(this) id='"+i+"' >" +  dato_1.title +"</li>";
  	html += s;
  }
 var mostrar = document.getElementById("mostrar");
 mostrar.innerHTML=html;// insrtando el contenido de la VAR html
 // ************************************************************************
-var body=document.body;
+
 function agregaTarea(){
   var inputRecuperar=document.getElementById("agregar").value;// recupera la "nota nueva" del input
   var datos = new tareas(inputRecuperar);
   datosTareas.push(datos);// agrega a mi array el dato que le ingrese por input
   for(var i=datosTareas.length-1;i<datosTareas.length;i++){//inicia desde el ultimo elemento y recorre
-    var ul=document.createElement("ul");
+    var ul=document.getElementById("mostrar");
     var li=document.createElement("li");
    // var nuevoImpresion=document.getElementById("nuevaTarea");
     li.innerHTML=datosTareas[i].title;
     ul.appendChild(li);
-    body.appendChild(ul);
+    
   }
 }
 // ************************************************************************
-
+function eliminar(){
+  evento
+}
